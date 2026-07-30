@@ -6,6 +6,10 @@
       nb = "sudo nixos-rebuild switch -I nixos-config=$HOME/nixos/configuration.nix";
     };
 
+    interactiveShellInit = ''
+      set -g fish_greeting ""
+    '';
+
     functions = {
       git = {
         description = "Wrapper around git that ensures global user.name/user.email are set";

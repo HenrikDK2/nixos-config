@@ -56,6 +56,11 @@ in
           color-scheme = "prefer-dark";
         };
 
+        "org/gnome/Console" = {
+          use-system-font = false;
+          custom-font = "Monospace 14";
+        };
+
         # Mouse
         "org/gnome/desktop/peripherals/mouse" = {
           accel-profile = "flat";
