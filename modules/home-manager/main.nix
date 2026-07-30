@@ -23,11 +23,11 @@ in
   home-manager.users.${username} = { lib, ... }: {
     home.stateVersion = "26.05";
 
+    # Programs
     imports = [
-      # Programs
-      ./programs/librewolf.nix
       ./programs/zed-editor.nix
       ./programs/fish.nix
+      ./programs/librewolf.nix
     ];
 
     gtk = {
