@@ -47,6 +47,7 @@
   # Remove documentation application from nixos
   documentation.nixos.enable = false;
 
+
   # Enable flatpak
   services.flatpak.enable = true;
   hardware.steam-hardware.enable = true; # Needed for steam flatpak
@@ -64,6 +65,9 @@
   # Enable printing
   services.printing.enable = true;
 
+  # Enable lact
+  services.lact.enable = true;
+
   # System packages
   programs.fish.enable = true;
   environment.systemPackages = with pkgs; [
@@ -73,6 +77,7 @@
     gnome-software
     geary
     flatpak
+    lynis
 
     gnomeExtensions.dash-to-panel
     gnomeExtensions.tiling-shell
