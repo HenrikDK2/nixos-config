@@ -29,8 +29,8 @@ in
       ./modules/programs/fish.nix
       ./modules/programs/librewolf.nix
 
-      # Autostart xdg
-      ./modules/xdg_autostart.nix
+      # Autostart scripts
+      ./modules/autostart/auto_connect_vpn.nix
     ];
 
     gtk = {
@@ -38,6 +38,7 @@ in
       colorScheme = "dark";
     };
 
+    xdg.autostart.enable = true;
     xdg.desktopEntries.xterm = {
       name = "xterm";
       noDisplay = true;
