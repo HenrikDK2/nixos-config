@@ -49,6 +49,7 @@
 
   # Enable flatpak
   services.flatpak.enable = true;
+  hardware.steam-hardware.enable = true; # Needed for steam flatpak
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];
@@ -72,7 +73,7 @@
     gnome-software
     geary
     flatpak
-
+    discord
     gnomeExtensions.dash-to-panel
     gnomeExtensions.tiling-shell
   ];

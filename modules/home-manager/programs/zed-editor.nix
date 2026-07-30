@@ -3,8 +3,8 @@
     enable = true;
 
     userSettings = {
-      ui_font_size = 20;
-      buffer_font_size = 20;
+      ui_font_size = 16;
+      buffer_font_size = 16;
 
       telemetry = {
         metrics = false;

@@ -25,6 +25,6 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
-
+  system.autoUpgrade.enable = true;
   system.stateVersion = "26.05";
 }

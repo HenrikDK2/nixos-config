@@ -49,57 +49,12 @@ in
 
     dconf = {
       enable = true;
-
-      settings = {
-        # Appearance
-        "org/gnome/desktop/interface" = {
-          color-scheme = "prefer-dark";
-        };
-
-        "org/gnome/Console" = {
-          use-system-font = false;
-          custom-font = "Monospace 14";
-        };
-
-        # Mouse
-        "org/gnome/desktop/peripherals/mouse" = {
-          accel-profile = "flat";
-        };
-
-        # Extensions
-        "org/gnome/shell" = {
-          enabled-extensions = [
-            "dash-to-panel@jderose9.github.com"
-            "tilingshell@ferrarodomenico.com"
-          ];
-        };
-
-        # Dash to Panel
-        "org/gnome/shell/extensions/dash-to-panel" = {
-          dot-position = "BOTTOM";
-          extension-version = 73;
-          hotkeys-overlay-combo = "TEMPORARILY";
-          intellihide = false;
-
-          panel-anchors = ''{"SAM-H1AK500000":"MIDDLE"}'';
-          panel-element-positions = "{}";
-          panel-lengths = ''{"SAM-H1AK500000":100}'';
-          panel-positions = ''{"SAM-H1AK500000":"LEFT"}'';
-          panel-sizes = ''{"SAM-H1AK500000":48}'';
-
-          prefs-opened = false;
-          window-preview-title-position = "TOP";
-        };
-
-        # Tiling Shell
-        "org/gnome/shell/extensions/tilingshell" = {
-          edge-tiling-mode = "default";
-          enable-autotiling = true;
-
-          inner-gaps = lib.hm.gvariant.mkUint32 0;
-          outer-gaps = lib.hm.gvariant.mkUint32 0;
-        };
-      };
+      settings =
+        (import ./dconf/appearance.nix { inherit lib; })
+        // (import ./dconf/mouse.nix { inherit lib; })
+        // (import ./dconf/keybindings.nix { inherit lib; })
+        // (import ./dconf/extensions.nix { inherit lib; })
+        // (import ./dconf/wm.nix { inherit lib; });
     };
   };
 }
