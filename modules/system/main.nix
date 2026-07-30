@@ -47,7 +47,6 @@
   # Remove documentation application from nixos
   documentation.nixos.enable = false;
 
-
   # Enable flatpak
   services.flatpak.enable = true;
   hardware.steam-hardware.enable = true; # Needed for steam flatpak
@@ -78,6 +77,8 @@
     geary
     flatpak
     lynis
+    gawk
+    ignition
 
     gnomeExtensions.dash-to-panel
     gnomeExtensions.tiling-shell

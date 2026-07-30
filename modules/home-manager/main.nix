@@ -23,11 +23,14 @@ in
   home-manager.users.${username} = { lib, ... }: {
     home.stateVersion = "26.05";
 
-    # Programs
     imports = [
-      ./programs/zed-editor.nix
-      ./programs/fish.nix
-      ./programs/librewolf.nix
+      # Programs
+      ./modules/programs/zed-editor.nix
+      ./modules/programs/fish.nix
+      ./modules/programs/librewolf.nix
+
+      # Autostart xdg
+      ./modules/xdg_autostart.nix
     ];
 
     gtk = {
@@ -50,14 +53,14 @@ in
     dconf = {
       enable = true;
       settings =
-        (import ./dconf/appearance.nix { inherit lib; })
-        // (import ./dconf/mouse.nix { inherit lib; })
-        // (import ./dconf/keybindings.nix { inherit lib; })
-        // (import ./dconf/extensions.nix {
+        (import ./modules/dconf/appearance.nix { inherit lib; })
+        // (import ./modules/dconf/mouse.nix { inherit lib; })
+        // (import ./modules/dconf/keybindings.nix { inherit lib; })
+        // (import ./modules/dconf/extensions.nix {
           inherit username;
           inherit lib;
         })
-        // (import ./dconf/wm.nix { inherit lib; });
+        // (import ./modules/dconf/wm.nix { inherit lib; });
     };
   };
 }
