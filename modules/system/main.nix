@@ -73,8 +73,9 @@
     gnome-software
     geary
     flatpak
-    discord
+
     gnomeExtensions.dash-to-panel
     gnomeExtensions.tiling-shell
+    gnomeExtensions.wallpaper-carousel
   ];
 }

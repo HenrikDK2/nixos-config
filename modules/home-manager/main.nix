@@ -53,7 +53,10 @@ in
         (import ./dconf/appearance.nix { inherit lib; })
         // (import ./dconf/mouse.nix { inherit lib; })
         // (import ./dconf/keybindings.nix { inherit lib; })
-        // (import ./dconf/extensions.nix { inherit lib; })
+        // (import ./dconf/extensions.nix {
+          inherit username;
+          inherit lib;
+        })
         // (import ./dconf/wm.nix { inherit lib; });
     };
   };

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ username, lib, ... }:
 {
   "org/gnome/shell" = {
     enabled-extensions = [
@@ -18,11 +18,15 @@
     panel-sizes = ''{"SAM-H1AK500000":48}'';
     prefs-opened = false;
     window-preview-title-position = "TOP";
+    trans-use-custom-opacity = true;
   };
   "org/gnome/shell/extensions/tilingshell" = {
     edge-tiling-mode = "default";
     enable-autotiling = true;
     inner-gaps = lib.hm.gvariant.mkUint32 0;
     outer-gaps = lib.hm.gvariant.mkUint32 0;
+  };
+  "org/gnome/shell/extensions/wallpaper-carousel" = {
+    directory = "/home/${username}/nixos/wallpapers";
   };
 }
