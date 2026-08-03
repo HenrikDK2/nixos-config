@@ -6,9 +6,7 @@ in
 {
   users.users.${username} = {
     isNormalUser = true;
-    initialPassword = "1234";
     shell = pkgs.fish;
-
     extraGroups = [
       "wheel"
       "networkmanager"
@@ -58,9 +56,24 @@ in
     };
 
     xdg.autostart.enable = true;
-    xdg.desktopEntries.xterm = {
-      name = "xterm";
-      noDisplay = true;
+    xdg.desktopEntries = {
+      xterm = {
+        name = "xterm";
+        noDisplay = true;
+      };
+
+      cups = {
+        name = "CUPS";
+        noDisplay = true;
+      };
+
+      import-openvpn-profile = {
+        name = "Import OpenVPN Profile";
+        exec = "nm-connection-editor --import %f";
+        type = "Application";
+        mimeType = [ "application/x-openvpn-profile" ];
+        noDisplay = true;
+      };
     };
 
     xdg.mimeApps = {

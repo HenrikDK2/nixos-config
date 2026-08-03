@@ -6,7 +6,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.kernelParams = [
-    "loglevel=3"                    # Reduce kernel console output; only show errors and more severe messages during boot
     "debugfs=off"                   # Disable mounting of debugfs (kernel debugging filesystem) for security/hardening
     "vsyscall=none"                 # Disable legacy vsyscall interface; improves security by preventing old syscall mechanisms
     "split_lock_detect=off"         # Disable split-lock detection (avoids performance penalties or crashes on CPUs supporting this feature)
@@ -53,10 +52,6 @@
 
     # Restrict exposure of kernel pointers
     "kernel.kptr_restrict" = 2;
-
-    # Disable loading/unloading kernel modules after boot
-    # WARNING: enable only after your system is fully configured
-    "kernel.modules_disabled" = 1;
 
     # Restrict SysRq magic key functions
     "kernel.sysrq" = 0;
