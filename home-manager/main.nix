@@ -1,4 +1,4 @@
-{ username, lib, pkgs, ... }:
+{ config, username, lib, pkgs, ... }:
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
@@ -18,12 +18,13 @@ in
     (import "${home-manager}/nixos")
   ];
 
-  home-manager.users.${username} = { lib, ... }: {
+  home-manager.users.${username} = { config, lib, ... }: {
     home.stateVersion = "26.05";
 
     imports = [
       # Programs
       ./modules/programs/zed-editor.nix
+      ./modules/programs/flatpak.nix
       ./modules/programs/fish.nix
       ./modules/programs/librewolf.nix
 

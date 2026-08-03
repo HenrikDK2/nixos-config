@@ -47,19 +47,8 @@
   # Remove documentation application from nixos
   documentation.nixos.enable = false;
 
-  # Enable flatpak
-  services.flatpak.enable = true;
-  hardware.steam-hardware.enable = true; # Needed for steam flatpak
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-
-    script = ''
-      flatpak remote-add --if-not-exists \
-        flathub \
-        https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
+  # Needed for steam flatpak
+  hardware.steam-hardware.enable = true;
 
   # Enable printing
   services.printing.enable = true;
@@ -74,10 +63,8 @@
     wl-clipboard
     git
     gnome-software
-    flatpak
     lynis
     gawk
-    ignition
     fastfetch
 
     gnomeExtensions.dash-to-panel
