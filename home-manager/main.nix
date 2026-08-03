@@ -33,6 +33,25 @@ in
       ./modules/autostart/auto_connect_vpn.nix
     ];
 
+    home.file = {
+      ############### $HOME ###############
+      "Wallpapers".source = ./modules/dotfiles/wallpapers;
+
+      ############### $HOME/.config ###############
+      ".config/fastfetch".source = ./modules/dotfiles/.config/fastfetch;
+
+      # Micro
+      ".config/micro/colorschemes/nordic.micro".source = ./modules/dotfiles/.config/micro/colorschemes/nordic.micro;
+      ".config/micro/plug".source = ./modules/dotfiles/.config/micro/plug;
+      ".config/micro/syntax".source = ./modules/dotfiles/.config/micro/syntax;
+      ".config/micro/bindings.json".source = ./modules/dotfiles/.config/micro/bindings.json;
+      ".config/micro/settings.json".source = ./modules/dotfiles/.config/micro/settings.json;
+
+      # Wireplumber
+      ".config/wireplumber/wireplumber.conf.d/51-general-tweaks.conf".source = ./modules/dotfiles/.config/wireplumber/wireplumber.conf.d/51-general-tweaks.conf;
+      ".config/wireplumber/wireplumber.conf.d/52-disable.conf".source = ./modules/dotfiles/.config/wireplumber/wireplumber.conf.d/52-disable.conf;
+    };
+
     gtk = {
       enable = true;
       colorScheme = "dark";

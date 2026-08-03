@@ -79,6 +79,7 @@
     lynis
     gawk
     ignition
+    fastfetch
 
     gnomeExtensions.dash-to-panel
     gnomeExtensions.tiling-shell

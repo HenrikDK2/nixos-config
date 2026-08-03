@@ -1,13 +1,13 @@
 { ... }:
 {
+  "org/gnome/settings-daemon/plugins/media-keys" = {
+    custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+  };
+
   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
     binding = "<Super>Return";
     command = "kgx";
     name = "Launch Console";
-  };
-
-  "org/gnome/desktop/wm/keybindings/close" = {
-    binding = "<Super>d";
   };
 
   # Disable Super+1-9 opening/switching apps
@@ -23,8 +23,10 @@
     switch-to-application-9 = [ ];
   };
 
-  # Bind Super+1-9 to switch workspaces instead
   "org/gnome/desktop/wm/keybindings" = {
+    close = [ "<Super>d" ];
+
+    # Bind Super+1-9 to switch workspaces instead
     switch-to-workspace-1 = [ "<Super>1" ];
     switch-to-workspace-2 = [ "<Super>2" ];
     switch-to-workspace-3 = [ "<Super>3" ];

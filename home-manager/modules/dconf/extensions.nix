@@ -4,6 +4,7 @@
     enabled-extensions = [
       "dash-to-panel@jderose9.github.com"
       "tilingshell@ferrarodomenico.com"
+      "wallpaper-carousel@rangol.se"
     ];
   };
   "org/gnome/shell/extensions/dash-to-panel" = {
@@ -27,6 +28,6 @@
     outer-gaps = lib.hm.gvariant.mkUint32 0;
   };
   "org/gnome/shell/extensions/wallpaper-carousel" = {
-    directory = "/home/${username}/nixos/wallpapers";
+    directory = "/home/${username}/Wallpapers";
   };
 }

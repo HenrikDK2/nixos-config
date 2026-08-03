@@ -14,10 +14,10 @@ in
     /etc/nixos/hardware-configuration.nix
 
     # System-wide packages, services and utilities
-    ./modules/system/main.nix
+    ./system/main.nix
 
     # Home Manager user configuration
-    ./modules/home-manager/main.nix
+    ./home-manager/main.nix
   ];
 
   _module.args = {
