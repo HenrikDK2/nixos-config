@@ -67,6 +67,11 @@ in
         noDisplay = true;
       };
 
+      micro = {
+        name = "micro";
+        noDisplay = true;
+      };
+
       import-openvpn-profile = {
         name = "Import OpenVPN Profile";
         exec = "nm-connection-editor --import %f";

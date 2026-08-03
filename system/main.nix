@@ -74,7 +74,6 @@
     wl-clipboard
     git
     gnome-software
-    geary
     flatpak
     lynis
     gawk
