@@ -7,6 +7,7 @@ let
     "org.freedesktop.Platform.VulkanLayer.MangoHud"
     "com.mastermindzh.tidal-hifi"
     "com.discordapp.Discord"
+    "org.mozilla.thunderbird"
     "org.qbittorrent.qBittorrent"
   ];
 
