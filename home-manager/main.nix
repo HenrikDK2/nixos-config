@@ -26,7 +26,6 @@ in
       ./modules/programs/zed-editor.nix
       ./modules/programs/flatpak.nix
       ./modules/programs/fish.nix
-      ./modules/programs/librewolf.nix
 
       # Autostart scripts
       ./modules/autostart/auto_connect_vpn.nix

@@ -8,6 +8,7 @@ let
     "com.mastermindzh.tidal-hifi"
     "com.discordapp.Discord"
     "org.mozilla.thunderbird"
+    "org.mozilla.firefox"
     "org.qbittorrent.qBittorrent"
   ];
 
@@ -83,6 +84,18 @@ in
         $DRY_RUN_CMD cp --no-preserve=mode ${../dotfiles/.var/app/org.qbittorrent.qBittorrent/config/qBittorrent/qBittorrent.conf} "$QB_DIR/qBittorrent.conf"
         $DRY_RUN_CMD cp --no-preserve=mode ${../dotfiles/.var/app/org.qbittorrent.qBittorrent/config/qBittorrent/blue.qbtheme} "$QB_DIR/blue.qbtheme"
         $DRY_RUN_CMD ${pkgs.gnused}/bin/sed -i "s#/home/[^/]*#$HOME#g" "$QB_DIR/qBittorrent.conf"
+      fi
+    '';
+
+  # Hacky way to get a mutable config file for Firefox
+  home.activation.firefoxDefaults =
+    config.lib.dag.entryAfter [ "writeBoundary" ] ''
+      FIREFOX_DIR="$HOME/.var/app/org.mozilla.firefox/config/mozilla/firefox"
+      PROFILE="u1yo2are.default-release"
+      mkdir -p "$FIREFOX_DIR"
+      if [ ! -e "$FIREFOX_DIR/$PROFILE" ]; then
+        $DRY_RUN_CMD cp -r --no-preserve=mode ${../dotfiles/.var/app/org.mozilla.firefox/config/mozilla/firefox} "$FIREFOX_DIR"
+        $DRY_RUN_CMD ${pkgs.gnused}/bin/sed -i "s#/home/[^/]*#$HOME#g" "$FIREFOX_DIR/$PROFILE/prefs.js"
       fi
     '';
 }
